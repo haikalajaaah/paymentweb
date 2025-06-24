@@ -2,7 +2,7 @@ import SETTINGS from './settings.js';
 
 let user = {
   saldo: 0,
-  status: false,
+  status: true,
   amount: 0,
   transactionId: null,
   interval: null
