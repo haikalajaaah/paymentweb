@@ -13,7 +13,7 @@ window.buatPembayaran = async function () {
   if (!jumlahDeposit || jumlahDeposit <= 0) return alert("Masukkan jumlah yang valid!");
 
   const { apikey, qrisCode } = SETTINGS.QRIS;
-  const res = await fetch(`https://www.wannhosting.web.id/api/orkut/createpayment?apikey=${apikey}&amount=${jumlahDeposit}&codeqr=${qrisCode}`);
+  const res = await fetch(`https://restapi.simplebot.my.id/orderkuota/createpayment?apikey=${apikey}&amount=${jumlahDeposit}&codeqr=${qrisCode}`);
   const json = await res.json();
 
   if (!json?.result) return alert("❌ Gagal membuat QRIS.");
@@ -58,7 +58,7 @@ async function cekStatusPembayaran() {
   const { apikey, merchantId, keyorkut } = SETTINGS.QRIS;
 
   try {
-    const res = await fetch(`https://www.wannhosting.web.id/api/orkut/cekstatus?apikey=${apikey}&merchant=${merchantId}&keyorkut=${keyorkut}`);
+    const res = await fetch(`https://restapi.simplebot.my.id/orderkuota/cekstatus?apikey=${apikey}&merchant=${merchantId}&keyorkut=${keyorkut}`);
     const json = await res.json();
 
     // Jika data transaksi array
